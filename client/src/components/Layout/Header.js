@@ -5,10 +5,10 @@ import { SiShopify } from "react-icons/si";
 const Header = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand  d-flex  align-items-center ">
-            <SiShopify className="mx-2" /> Shopify
+            <SiShopify className="mx-2" /> E-commerce App
           </Link>
           <button
             className="navbar-toggler"
