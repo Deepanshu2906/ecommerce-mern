@@ -7,27 +7,27 @@ const registerController = async (req, res) => {
     const { name, email, password, phone, address } = req.body;
     // validation
     if (!name) {
-      return res.send("Name is required");
+      return res.send({ message: "Name is required" });
     }
     if (!email) {
-      return res.send("email is required");
+      return res.send({ message: "email is required" });
     }
     if (!password) {
-      console.log("Password is required");
+      console.log({ message: "Password is required" });
     }
     if (!phone) {
-      console.log("phone number is required");
+      console.log({ message: "phone number is required" });
     }
     if (!address) {
-      console.log(" address is required");
+      console.log({ message: " address is required" });
     }
 
     // checking if existing user
     const existingUser = await userModel.findOne({ email: email });
-
+    console.log(existingUser);
     if (existingUser) {
       return res.status(200).send({
-        success: true,
+        success: false,
         message: "Already registered please login",
       });
     }
@@ -83,7 +83,7 @@ const loginController = async (req, res) => {
     }
     // token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "3d",
     });
     res.status(200).send({
       success: true,
