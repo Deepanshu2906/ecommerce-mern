@@ -11,6 +11,7 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
+  const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
 
   // form function
@@ -26,6 +27,7 @@ const Register = () => {
           password,
           phone,
           address,
+          answer,
         }
       );
       if (res.data.success) {
@@ -99,6 +101,17 @@ const Register = () => {
               placeholder="Enter your address "
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputAddress"
+              placeholder="What is your favorite sports ? "
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
               required
             />
           </div>
